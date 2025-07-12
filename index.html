@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+    <title>Code Cheatsheet</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <div class="nav-content">
+                <h1 class="logo">Cheatsheet</h1>
+                <ul>
+                    <a href="https://atsuchak.github.io/MyCodeSheet/"></a>
+                    <li>Home</li>
+                    <a target="_blank" href="https://atsuchak.github.io/">
+                        <li>Portfolio</li>
+                    </a>
+                    <a target="_blank" href="https://atsuchak.github.io/#contact">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                <span id="sun-icon">☀️</span>
+                <span id="moon-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-toggle-btn" id="mobile-toggle-btn">></div>
+    <div class="sidebar">
+        <h2>Search & Filters</h2>
+        <input type="text" id="search-box" placeholder="Search content...">
+
+        <h3><a href="#git-content">Git</a><span class="toggle-arrow collapsed"></span></h3>
+        <ul>
+            <li data-value="addGitConfig">Add Config details</li>
+            <li data-value="checkGitConfig">Check Config details</li>
+            <li data-value="gitInit">Initialize Git</li>
+        </ul>
+
+        <h3>HTML <span class="toggle-arrow collapsed"></span></h3>
+        <ul>
+            <li></li>
+        </ul>
+
+        <h3>CSS <span class="toggle-arrow collapsed"></span></h3>
+        <ul>
+            <li></li>
+        </ul>
+
+        <h3>JavaScript <span class="toggle-arrow collapsed"></span></h3>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- HTML Content -->
+        <section id="git-content">
+            <h1>Git Content</h1>
+
+            <section id="addGitConfig">
+                <h2 class="main-content-title">Add Config Details</h2>
+                <h3>Global name config</h3>
+                <p>Configure user name globally</p>
+                <pre class="language-bash"><code>git config --global name "your_name"</code></pre>
+                <h3>Global email config</h3>
+                <p>Configure user email globally</p>
+                <pre class="language-bash"><code>git config --global email "your_email"</code></pre>
+                <h3>Specific repo name config</h3>
+                <p>Configure user name for Specific repository</p>
+                <pre class="language-bash"><code>git config email "your_email"</code></pre>
+                <h3>Specific repo email config</h3>
+                <p>Configure user email for Specific repository</p>
+                <pre class="language-bash"><code>git config email "your_email"</code></pre>
+            </section>
+
+            <section id="checkGitConfig">
+                <h2 class="main-content-title">Check Config Details</h2>
+                <h3>Check globally config name</h3>
+                <p>Check globally Configured user name</p>
+                <pre class="language-bash"><code>git config --global name</code></pre>
+                <h3>Check globally config email</h3>
+                <p>Check globally Configured user email</p>
+                <pre class="language-bash"><code>git config --global email</code></pre>
+                <h3>Check specific config repo name</h3>
+                <p>Check Configured user name add for specific repository</p>
+                <pre class="language-bash"><code>git config name</code></pre>
+                <h3>Check specific config repo email</h3>
+                <p>Check Configured user email add for specific repository</p>
+                <pre class="language-bash"><code>git config email</code></pre>
+            </section>
+            <section id="gitInit">
+                <h2 class="main-content-title">Initialize Git</h2>
+                <h3>Git init</h3>
+                <p>Initialize git locally</p>
+                <pre class="language-bash"><code>git init</code></pre>
+            </section>
+
+        </section>
+
+        <!-- CSS Content -->
+        <section id="css-content" hidden>
+            <h1>CSS Content</h1>
+            <section id="flexbox">
+                <h2>Flexbox</h2>
+                <p>Flexbox layout examples...</p>
+            </section>
+            <section id="grid">
+                <h2>CSS Grid</h2>
+                <p>Grid layout system...</p>
+            </section>
+        </section>
+
+        <!-- JavaScript Content -->
+        <section id="js-content" hidden>
+            <h1>JavaScript Content</h1>
+            <section id="functions">
+                <h2>Functions</h2>
+                <p>Function declarations and expressions...</p>
+            </section>
+            <section id="events">
+                <h2>Events</h2>
+                <p>Event listeners and handlers...</p>
+            </section>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
