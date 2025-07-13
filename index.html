@@ -51,6 +51,7 @@
             <li data-value="gitCommitNav">Commit Navigation</li>
             <li data-value="gitBranch">Branch Management</li>
             <li data-value="gitMerge">Merge Code</li>
+            <li data-value="gitDiff">Diff Changes</li>
         </ul>
 
         <h3>HTML <span class="toggle-arrow collapsed"></span></h3>
@@ -264,6 +265,35 @@ git pull origin main</code></pre>
                 <h3>View Merge Conflicts</h3>
                 <p>List files with merge conflicts:</p>
                 <pre class="language-bash"><code>git status</code></pre>
+            </section>
+
+            <section id="gitDiff">
+                <h2 class="main-content-title">Diff Operations</h2>
+
+                <h3>Unstaged Changes</h3>
+                <p>View changes in working directory that haven't been staged:</p>
+                <pre class="language-bash"><code>git diff</code></pre>
+
+                <h3>Staged Changes</h3>
+                <p>View changes that have been staged but not yet committed:</p>
+                <pre class="language-bash"><code>git diff --cached</code></pre>
+
+                <h3>All Changes (Staged + Unstaged)</h3>
+                <p>View both staged and unstaged changes together:</p>
+                <pre class="language-bash"><code>git diff HEAD</code></pre>
+
+                <h3>Compare Two Branches</h3>
+                <p>Show differences between two branches:</p>
+                <pre class="language-bash"><code>git diff main..dev</code></pre>
+
+                <h3>Compare Two Commits</h3>
+                <p>Show changes between two specific commits:</p>
+                <pre class="language-bash"><code>git diff commit1 commit2</code></pre>
+
+                <h3>Check Changes Since Last Commit</h3>
+                <p>See what changed since the last commit:</p>
+                <pre class="language-bash"><code>git diff HEAD</code></pre>
+
             </section>
 
         </section>
