@@ -40,11 +40,15 @@
 
         <h3><a href="#git-content">Git</a><span class="toggle-arrow collapsed"></span></h3>
         <ul>
-            <li data-value="addGitConfig">Add Config Details</li>
-            <li data-value="checkGitConfig">Check Config Details</li>
-            <li data-value="gitInit">Initialize Git</li>
+            <li data-value="gitConfig">Git Config </li>
+            <li data-value="viewGitConfig">Config Status</li>
+            <li data-value="gitInit">Git Init</li>
             <li data-value="addGit">Git Add</li>
-
+            <li data-value="gitCommit">Git Commits</li>
+            <li data-value="githubConnect">Connect to GitHub</li>
+            <li data-value="gitPush">Git Push</li>
+            <li data-value="gitLog">Commit History</li>
+            <li data-value="gitCommitNav">Commit Navigation</li>
         </ul>
 
         <h3>HTML <span class="toggle-arrow collapsed"></span></h3>
@@ -68,53 +72,143 @@
         <section id="git-content">
             <h1>Git Content</h1>
 
-            <section id="addGitConfig">
-                <h2 class="main-content-title">Add Config Details</h2>
-                <h3>Global name config</h3>
-                <p>Configure user name globally</p>
-                <pre class="language-bash"><code>git config --global name "your_name"</code></pre>
-                <h3>Global email config</h3>
-                <p>Configure user email globally</p>
-                <pre class="language-bash"><code>git config --global email "your_email"</code></pre>
-                <h3>Specific repo name config</h3>
-                <p>Configure user name for Specific repository</p>
-                <pre class="language-bash"><code>git config email "your_email"</code></pre>
-                <h3>Specific repo email config</h3>
-                <p>Configure user email for Specific repository</p>
-                <pre class="language-bash"><code>git config email "your_email"</code></pre>
+            <section id="gitConfig">
+                <h2 class="main-content-title">Git Configuration Settings</h2>
+                <h3>Set Your Global Username</h3>
+                <p>Configure your display name for all Git repositories on your system:</p>
+                <pre class="language-bash"><code>git config --global user.name "Your Name"</code></pre>
+                <h3>Set Your Global Email Address</h3>
+                <p>Configure your email address for all Git repositories on your system:</p>
+                <pre class="language-bash"><code>git config --global user.email "your_email@example.com"</code></pre>
+                <h3>Set a Repository-Specific Username</h3>
+                <p>Override the global username for a specific Git repository (run this command inside the repository):
+                </p>
+                <pre class="language-bash"><code>git config user.name "Your Name"</code></pre>
+                <h3>Set a Repository-Specific Email Address</h3>
+                <p>Override the global username for a specific Git repository (run this command inside the repository):
+                </p>
+                <pre class="language-bash"><code>git config user.email "your_email@example.com"</code></pre>
             </section>
 
-            <section id="checkGitConfig">
-                <h2 class="main-content-title">Check Config Details</h2>
-                <h3>Check globally config name</h3>
-                <p>Check globally Configured user name</p>
-                <pre class="language-bash"><code>git config --global name</code></pre>
-                <h3>Check globally config email</h3>
-                <p>Check globally Configured user email</p>
-                <pre class="language-bash"><code>git config --global email</code></pre>
+            <section id="viewGitConfig">
+                <h2 class="main-content-title">View Git Configuration</h2>
+                <h3>View Global Username</h3>
+                <p>Check your globally configured Git username:</p>
+                <pre class="language-bash"><code>git config --global user.name</code></pre>
+                <h3>View Global Email</h3>
+                <p>Check your globally configured Git emial:</p>
+                <pre class="language-bash"><code>git config --global user.email</code></pre>
                 <h3>Check specific config repo name</h3>
                 <p>Check Configured user name add for specific repository</p>
-                <pre class="language-bash"><code>git config name</code></pre>
+                <pre class="language-bash"><code>git config user.name</code></pre>
                 <h3>Check specific config repo email</h3>
                 <p>Check Configured user email add for specific repository</p>
-                <pre class="language-bash"><code>git config email</code></pre>
+                <pre class="language-bash"><code>git config user.email</code></pre>
             </section>
 
             <section id="gitInit">
-                <h2 class="main-content-title">Initialize Git</h2>
-                <h3>Git init</h3>
-                <p>Initialize git locally</p>
+                <h2 class="main-content-title">Initialize a Git Repository</h2>
+                <h3>Create a New Repository</h3>
+                <p>Initialize Git in the current directory to start version tracking:</p>
                 <pre class="language-bash"><code>git init</code></pre>
             </section>
 
             <section id="addGit">
-                <h2 class="main-content-title">Add File</h2>
-                <h3>Add specific file</h3>
-                <p>Add specific file to git</p>
-                <pre class="language-bash"><code>git add file_name.extension</code></pre>
-                <h3>Add all file</h3>
-                <p>Add all the file at a time</p>
+                <h2 class="main-content-title">Stage Files for Commit</h2>
+                <h3>Stage a Specific File</h3>
+                <p>Add a single file to Git's staging area:</p>
+                <pre class="language-bash"><code>git add fileName.extension</code></pre>
+                <h3>Stage All Changes</h3>
+                <p>Add all new and modified files to the staging area:</p>
                 <pre class="language-bash"><code>git add .</code></pre>
+            </section>
+
+            <section id="gitCommit">
+                <h2 class="main-content-title">Save Changes with Commit</h2>
+                <h3>Create a New Commit</h3>
+                <p>Permanently save your staged changes to version history with a descriptive message:</p>
+                <pre class="language-bash"><code>git commit -m "commit message here"</code></pre>
+            </section>
+
+            <section id="githubConnect">
+                <h2 class="main-content-title">Connect Local Project to GitHub</h2>
+                <h3>Link Existing Folder to New Repository</h3>
+                <p>Connect your local project folder to a new GitHub repository:</p>
+                <pre class="language-bash"><code>git remote add origin https://github.com/username/repo.git</code></pre>
+
+                <h3>Link Existing Folder to Existing Repository</h3>
+                <p>Connect your local folder to an already created GitHub repository:</p>
+                <pre class="language-bash"><code>git remote add origin https://github.com/username/repo.git
+git pull origin main</code></pre>
+            </section>
+
+            <section id="gitPush">
+                <h2 class="main-content-title">Upload Changes to Remote</h2>
+                <h3>Push to Main Branch</h3>
+                <p>Upload your committed changes to the main branch of the remote repository:</p>
+                <pre class="language-bash"><code>git push origin main</code></pre>
+
+                <h3>Push Specific Branch</h3>
+                <p>Upload changes from a different local branch to its remote counterpart:</p>
+                <pre class="language-bash"><code>git push origin branch_name</code></pre>
+
+                <h3>Force Push</h3>
+                <p>Overwrite remote history (use with caution):</p>
+                <pre class="language-bash"><code>git push --force origin main</code></pre>
+            </section>
+
+            <section id="gitLog">
+                <h2 class="main-content-title">View Commit History</h2>
+                <h3>Basic Commit Log</h3>
+                <p>Display the commit history in chronological order:</p>
+                <pre class="language-bash"><code>git log</code></pre>
+
+                <h3>Compact Log View</h3>
+                <p>Show simplified commit history (one line per commit):</p>
+                <pre class="language-bash"><code>git log --oneline</code></pre>
+
+                <h3>Graphical Branch History</h3>
+                <p>Visualize commit history with branch topology:</p>
+                <pre class="language-bash"><code>git log --graph --oneline --all</code></pre>
+
+                <h3>Filter by Author</h3>
+                <p>Show commits from a specific contributor:</p>
+                <pre class="language-bash"><code>git log --author="Name"</code></pre>
+
+                <h3>Search Commit Messages</h3>
+                <p>Find commits containing specific text:</p>
+                <pre class="language-bash"><code>git log --grep="search term"</code></pre>
+
+                <h3>Show Changes in Files</h3>
+                <p>View what changed in each commit:</p>
+                <pre class="language-bash"><code>git log -p</code></pre>
+            </section>
+
+            <section id="gitCommitNav">
+                <h2 class="main-content-title">Navigate Commit History</h2>
+                <h3>Checkout a Specific Commit</h3>
+                <p>Temporarily switch to a previous commit state (read-only):</p>
+                <pre class="language-bash"><code>git checkout a1b2c3d</code></pre>
+                <p class="note">Replace "a1b2c3d" with your actual commit hash</p>
+
+                <h3>Return to Latest Commit</h3>
+                <p>Switch back to the most recent commit in your branch:</p>
+                <pre class="language-bash"><code>git checkout main</code></pre>
+                <p class="note">Replace "main" with your branch name if different</p>
+
+                <h3>Force Checkout (Discard Changes)</h3>
+                <p>Overwrite all local changes and return to the latest commit (WARNING: Permanent data loss):</p>
+                <pre class="language-bash"><code>git checkout -f main</code></pre>
+                <p class="warning">⚠️ This will permanently erase all uncommitted changes and untracked files in your working directory</p>
+
+                <h3>Create Branch from Old Commit</h3>
+                <p>Start a new branch from a historical commit (safe for modifications):</p>
+                <pre class="language-bash"><code>git checkout -b new-branch-name a1b2c3d</code></pre>
+
+                <h3>Find Commit Hashes</h3>
+                <p>View abbreviated commit history with hashes:</p>
+                <pre class="language-bash"><code>git log --oneline</code></pre>
+
             </section>
 
         </section>
