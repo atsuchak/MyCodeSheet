@@ -163,6 +163,9 @@ nav {
 }
 .sidebar li {
   padding: 8px;
+}
+.sidebar li:hover {
+  color: blue;
   cursor: pointer;
 }
 .sidebar li.highlight {
