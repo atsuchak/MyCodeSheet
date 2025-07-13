@@ -54,6 +54,7 @@
             <li data-value="gitMerge">Merge Code</li>
             <li data-value="gitDiff">Diff Changes</li>
             <li data-value="gitReset">Git Reset</li>
+            <li data-value="gitRevert">Git Revert</li>
         </ul>
 
         <h3>HTML <span class="toggle-arrow collapsed"></span></h3>
@@ -354,6 +355,30 @@ git pull origin main</code></pre>
                 <h3>5. Unstage Single File</h3>
                 <p>Remove one file from staging while keeping changes in working directory:</p>
                 <pre class="language-bash"><code>git reset HEAD file.txt</code></pre>
+            </section>
+
+            <section id="gitRevert">
+                <h2 class="main-content-title">Essential Git Revert Commands</h2>
+
+                <h3>1. Undo Last Commit</h3>
+                <p>Create a new commit that reverses the changes from the most recent commit:</p>
+                <pre class="language-bash"><code>git revert HEAD</code></pre>
+
+                <h3>2. Undo Specific Commit</h3>
+                <p>Reverse changes from any commit while keeping later commits intact:</p>
+                <pre class="language-bash"><code>git revert a1b2c3d</code></pre>
+
+                <h3>3. Undo Without Committing</h3>
+                <p>Stage the reversal changes but don't auto-commit (for manual adjustments):</p>
+                <pre class="language-bash"><code>git revert -n a1b2c3d</code></pre>
+
+                <h3>4. Undo Merge Commit</h3>
+                <p>Safely reverse a merge while preserving history:</p>
+                <pre class="language-bash"><code>git revert -m 1 merge_commit_hash</code></pre>
+
+                <h3>5. Undo Multiple Commits</h3>
+                <p>Reverse a range of commits (creates one revert per commit):</p>
+                <pre class="language-bash"><code>git revert oldest_hash..newest_hash</code></pre>
             </section>
 
 
