@@ -49,6 +49,8 @@
             <li data-value="gitPush">Git Push</li>
             <li data-value="gitLog">Commit History</li>
             <li data-value="gitCommitNav">Commit Navigation</li>
+            <li data-value="gitBranch">Branch Management</li>
+            <li data-value="gitMerge">Merge Code</li>
         </ul>
 
         <h3>HTML <span class="toggle-arrow collapsed"></span></h3>
@@ -199,7 +201,8 @@ git pull origin main</code></pre>
                 <h3>Force Checkout (Discard Changes)</h3>
                 <p>Overwrite all local changes and return to the latest commit (WARNING: Permanent data loss):</p>
                 <pre class="language-bash"><code>git checkout -f main</code></pre>
-                <p class="warning">⚠️ This will permanently erase all uncommitted changes and untracked files in your working directory</p>
+                <p class="warning">⚠️ This will permanently erase all uncommitted changes and untracked files in your
+                    working directory</p>
 
                 <h3>Create Branch from Old Commit</h3>
                 <p>Start a new branch from a historical commit (safe for modifications):</p>
@@ -209,6 +212,58 @@ git pull origin main</code></pre>
                 <p>View abbreviated commit history with hashes:</p>
                 <pre class="language-bash"><code>git log --oneline</code></pre>
 
+            </section>
+
+            <section id="gitBranch">
+                <h2 class="main-content-title">Branch Operations</h2>
+
+                <h3>Create New Branch</h3>
+                <p>Start a new branch from your current commit:</p>
+                <pre class="language-bash"><code>git branch new-feature</code></pre>
+
+                <h3>Switch to Branch</h3>
+                <p>Move to an existing branch:</p>
+                <pre class="language-bash"><code>git checkout branch-name</code></pre>
+
+                <h3>Create + Switch Branch</h3>
+                <p>Combine branch creation and switching in one command:</p>
+                <pre class="language-bash"><code>git checkout -b hotfix-branch</code></pre>
+
+                <h3>List All Branches</h3>
+                <p>View local branches (* marks current branch):</p>
+                <pre class="language-bash"><code>git branch</code></pre>
+
+                <h3>Delete Branch</h3>
+                <p>Remove a merged branch (safe deletion):</p>
+                <pre class="language-bash"><code>git branch -d old-branch</code></pre>
+
+                <h3>Force Delete Branch</h3>
+                <p>Delete unmerged branch (potential data loss):</p>
+                <pre class="language-bash"><code>git branch -D unmerged-branch</code></pre>
+            </section>
+
+            <section id="gitMerge">
+                <h2 class="main-content-title">Merge Operations</h2>
+
+                <h3>Merge Branch</h3>
+                <p>Combine another branch into your current branch:</p>
+                <pre class="language-bash"><code>git merge feature-branch</code></pre>
+
+                <h3>Fast-Forward Merge</h3>
+                <p>Linear history merge (when possible):</p>
+                <pre class="language-bash"><code>git merge --ff-only main</code></pre>
+
+                <h3>No-Fast-Forward Merge</h3>
+                <p>Always create merge commit (even when unnecessary):</p>
+                <pre class="language-bash"><code>git merge --no-ff dev</code></pre>
+
+                <h3>Abort Merge</h3>
+                <p>Cancel a merge in progress with conflicts:</p>
+                <pre class="language-bash"><code>git merge --abort</code></pre>
+
+                <h3>View Merge Conflicts</h3>
+                <p>List files with merge conflicts:</p>
+                <pre class="language-bash"><code>git status</code></pre>
             </section>
 
         </section>
