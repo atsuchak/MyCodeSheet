@@ -42,6 +42,7 @@
         <ul>
             <li data-value="gitConfig">Git Config </li>
             <li data-value="viewGitConfig">Config Status</li>
+            <li data-value="gitWorkflow">Git Workflow</li>
             <li data-value="gitInit">Git Init</li>
             <li data-value="addGit">Git Add</li>
             <li data-value="gitCommit">Git Commits</li>
@@ -51,6 +52,8 @@
             <li data-value="gitCommitNav">Commit Navigation</li>
             <li data-value="gitBranch">Branch Management</li>
             <li data-value="gitMerge">Merge Code</li>
+            <li data-value="gitDiff">Diff Changes</li>
+            <li data-value="gitReset">Git Reset</li>
         </ul>
 
         <h3>HTML <span class="toggle-arrow collapsed"></span></h3>
@@ -106,6 +109,39 @@
                 <h3>Check specific config repo email</h3>
                 <p>Check Configured user email add for specific repository</p>
                 <pre class="language-bash"><code>git config user.email</code></pre>
+            </section>
+
+            <section id="gitWorkflow">
+                <h2 class="main-content-title">Basic Git Workflow</h2>
+
+                <h3>Clone a Repository</h3>
+                <p>Create a local copy of a remote repository to start working:</p>
+                <pre class="language-bash"><code>git clone https://github.com/username/repo.git</code></pre>
+
+                <h3>Create a Feature Branch</h3>
+                <p>Start a new branch to isolate your changes from the main codebase:</p>
+                <pre class="language-bash"><code>git checkout -b feature-branch</code></pre>
+
+                <h3>Stage and Commit Changes</h3>
+                <p>Save your work to version history with a descriptive message:</p>
+                <pre class="language-bash"><code>git add .
+git commit -m "Implement user login functionality"</code></pre>
+
+                <h3>Push to Remote Repository</h3>
+                <p>Upload your local commits to share with team members:</p>
+                <pre class="language-bash"><code>git push origin feature-branch</code></pre>
+
+                <h3>Create Pull Request</h3>
+                <p>Propose merging your changes to the main branch (done through GitHub/GitLab UI)</p>
+
+                <h3>Review and Merge</h3>
+                <p>After approval, merge your pull request into the main branch (typically done in UI)</p>
+
+                <h3>Update Local Repository</h3>
+                <p>Synchronize your local main branch with the latest merged changes:</p>
+                <pre class="language-bash"><code>git checkout main
+git pull origin main</code></pre>
+
             </section>
 
             <section id="gitInit">
@@ -265,6 +301,61 @@ git pull origin main</code></pre>
                 <p>List files with merge conflicts:</p>
                 <pre class="language-bash"><code>git status</code></pre>
             </section>
+
+            <section id="gitDiff">
+                <h2 class="main-content-title">Diff Operations</h2>
+
+                <h3>Unstaged Changes</h3>
+                <p>View changes in working directory that haven't been staged:</p>
+                <pre class="language-bash"><code>git diff</code></pre>
+
+                <h3>Staged Changes</h3>
+                <p>View changes that have been staged but not yet committed:</p>
+                <pre class="language-bash"><code>git diff --cached</code></pre>
+
+                <h3>All Changes (Staged + Unstaged)</h3>
+                <p>View both staged and unstaged changes together:</p>
+                <pre class="language-bash"><code>git diff HEAD</code></pre>
+
+                <h3>Compare Two Branches</h3>
+                <p>Show differences between two branches:</p>
+                <pre class="language-bash"><code>git diff main..dev</code></pre>
+
+                <h3>Compare Two Commits</h3>
+                <p>Show changes between two specific commits:</p>
+                <pre class="language-bash"><code>git diff commit1 commit2</code></pre>
+
+                <h3>Check Changes Since Last Commit</h3>
+                <p>See what changed since the last commit:</p>
+                <pre class="language-bash"><code>git diff HEAD</code></pre>
+
+            </section>
+
+            <section id="gitReset">
+                <h2 class="main-content-title">Git Reset Commands</h2>
+
+                <h3>1. Undo Last Commit (Keep Changes)</h3>
+                <p>Remove the most recent commit but keep all changes staged:</p>
+                <pre class="language-bash"><code>git reset --soft HEAD~1</code></pre>
+
+                <h3>2. Unstage All Files</h3>
+                <p>Remove all changes from staging area (keeps working directory intact):</p>
+                <pre class="language-bash"><code>git reset</code></pre>
+
+                <h3>3. Discard Local Changes (DANGER)</h3>
+                <p>Permanently erase all uncommitted changes and reset to last commit:</p>
+                <pre class="language-bash"><code>git reset --hard HEAD</code></pre>
+                <p class="warning">⚠️ Irreversible action - use with caution</p>
+
+                <h3>4. Reset to Specific Commit</h3>
+                <p>Move branch pointer to an older commit (keeps changes in working dir):</p>
+                <pre class="language-bash"><code>git reset a1b2c3d</code></pre>
+
+                <h3>5. Unstage Single File</h3>
+                <p>Remove one file from staging while keeping changes in working directory:</p>
+                <pre class="language-bash"><code>git reset HEAD file.txt</code></pre>
+            </section>
+
 
         </section>
 
