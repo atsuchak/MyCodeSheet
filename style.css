@@ -212,14 +212,11 @@ section[id] {
 .main-content h2 {
   border-bottom: 1px solid var(--font);
   border-radius: 50px;
-}
-
-.main-content-title {
   text-align: center;
   padding: 1rem 0 0 0;
 }
 
-#git-content h3 {
+.main-content h3 {
   padding: 1rem 0 0 0;
 }
 

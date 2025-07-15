@@ -71,6 +71,19 @@
         <ul>
             <li></li>
         </ul>
+
+        <h3><a href="#cpp-content">C++ </a><span class="toggle-arrow collapsed"></span></h3>
+        <ul>
+            <li data-value="fast-io">Fast I/O</li>
+            <li data-value="stl-containers">STL Containers</li>
+            <li data-value="algorithm-templates">Algo Templates</li>
+            <li data-value="number-theory">Number Theory</li>
+            <li data-value="graph-algorithms">Graph Algos</li>
+            <li data-value="dynamic-programming">DP</li>
+            <li data-value="string-algorithms">String Algos</li>
+            <li data-value="geometry">Geometry</li>
+            <li data-value="fenwick-tree">Fenwick Tree</li>
+        </ul>
     </div>
 
     <div class="main-content">
@@ -390,10 +403,7 @@ git pull origin main</code></pre>
             <section id="flexbox">
                 <h2>Flexbox</h2>
                 <p>Flexbox layout examples...</p>
-            </section>
-            <section id="grid">
-                <h2>CSS Grid</h2>
-                <p>Grid layout system...</p>
+                <pre class="language-css"><code></code></pre>
             </section>
         </section>
 
@@ -403,12 +413,342 @@ git pull origin main</code></pre>
             <section id="functions">
                 <h2>Functions</h2>
                 <p>Function declarations and expressions...</p>
+                <pre><code>code here</code></pre>
             </section>
             <section id="events">
                 <h2>Events</h2>
                 <p>Event listeners and handlers...</p>
+                <pre><code>code here</code></pre>
             </section>
         </section>
+
+        <section id="cpp-content">
+            <h1>C++ Competitive Programming</h1>
+
+            <!-- Section 1: Fast I/O Optimization -->
+            <section id="fast-io">
+                <h2 class="main-content-title">Fast I/O Optimization</h2>
+
+                <h3>Disable Sync with C I/O</h3>
+                <p>Significantly speeds up cin/cout by disabling synchronization with C's stdio:</p>
+                <pre class="language-cpp"><code>ios_base::sync_with_stdio(false);</code></pre>
+
+                <h3>Unbind cin from cout</h3>
+                <p>Prevents flushing cout before cin input (further optimizes I/O):</p>
+                <pre class="language-cpp"><code>cin.tie(NULL);</code></pre>
+
+                <h3>Unbind cout from cin</h3>
+                <p>Optional optimization for competitive programming:</p>
+                <pre class="language-cpp"><code>cout.tie(NULL);</code></pre>
+            </section>
+
+            <!-- Section 2: STL Containers -->
+            <section id="stl-containers">
+                <h2 class="main-content-title">STL Containers</h2>
+
+                <h3>Vector</h3>
+                <p>Dynamic array with O(1) random access and amortized O(1) push_back:</p>
+                <pre class="language-cpp"><code>vector&lt;int&gt; v = {1, 2, 3};
+v.push_back(4);</code></pre>
+
+                <h3>Priority Queue</h3>
+                <p>Max-heap implementation (default) with O(log n) push/pop:</p>
+                <pre class="language-cpp"><code>priority_queue&lt;int&gt; pq;
+pq.push(3); pq.push(1); pq.push(4);
+int top = pq.top(); // 4</code></pre>
+
+                <h3>Unordered Map</h3>
+                <p>Hash table with O(1) average case operations:</p>
+                <pre class="language-cpp"><code>unordered_map&lt;string, int&gt; freq;
+freq["apple"] = 5;
+if (freq.count("apple")) { ... }</code></pre>
+            </section>
+
+            <!-- Section 3: Algorithm Templates -->
+            <section id="algorithm-templates">
+                <h2 class="main-content-title">Algorithm Templates</h2>
+
+                <h3>Binary Search</h3>
+                <p>Standard implementation for sorted arrays (O(log n)):</p>
+                <pre class="language-cpp"><code>int l = 0, r = n-1;
+while (l <= r) {
+    int mid = l + (r-l)/2;
+    if (arr[mid] == target) return mid;
+    if (arr[mid] < target) l = mid+1;
+    else r = mid-1;
+}</code></pre>
+
+                <h3>BFS Template</h3>
+                <p>Level-order traversal for graphs/trees:</p>
+                <pre class="language-cpp"><code>queue&lt;int&gt; q;
+vector&lt;bool&gt; visited(n, false);
+q.push(start);
+visited[start] = true;
+
+while (!q.empty()) {
+    int node = q.front(); q.pop();
+    for (int neighbor : graph[node]) {
+        if (!visited[neighbor]) {
+            visited[neighbor] = true;
+            q.push(neighbor);
+        }
+    }
+}</code></pre>
+
+                <h3>Union-Find (DSU)</h3>
+                <p>Efficient connectivity queries with path compression:</p>
+                <pre class="language-cpp"><code>vector&lt;int&gt; parent(n), rank(n, 0);
+iota(parent.begin(), parent.end(), 0);
+
+int find(int x) {
+    return parent[x] == x ? x : parent[x] = find(parent[x]);
+}
+
+void unite(int x, int y) {
+    x = find(x); y = find(y);
+    if (x != y) {
+        if (rank[x] < rank[y]) swap(x, y);
+        parent[y] = x;
+        if (rank[x] == rank[y]) rank[x]++;
+    }
+}</code></pre>
+            </section>
+
+            <!-- Section 4: Number Theory -->
+            <section id="number-theory">
+                <h2 class="main-content-title">Number Theory</h2>
+
+                <h3>Sieve of Eratosthenes</h3>
+                <p>Generate all primes up to N in O(n log log n) time:</p>
+                <pre class="language-cpp"><code>vector&lt;bool&gt; is_prime(n+1, true);
+is_prime[0] = is_prime[1] = false;
+for (int i = 2; i*i <= n; i++) {
+    if (is_prime[i]) {
+        for (int j = i*i; j <= n; j += i)
+            is_prime[j] = false;
+    }
+}</code></pre>
+
+                <h3>Modular Exponentiation</h3>
+                <p>Calculate (a^b) % mod efficiently in O(log b) time:</p>
+                <pre class="language-cpp"><code>long long modpow(long long a, long long b, long long mod) {
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1) res = (res * a) % mod;
+        a = (a * a) % mod;
+        b >>= 1;
+    }
+    return res;
+}</code></pre>
+
+                <h3>GCD using Euclid's Algorithm</h3>
+                <p>Compute greatest common divisor in O(log min(a,b)):</p>
+                <pre class="language-cpp"><code>int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a % b);
+}</code></pre>
+            </section>
+
+            <!-- Section 5: Graph Algorithms -->
+            <section id="graph-algorithms">
+                <h2 class="main-content-title">Graph Algorithms</h2>
+
+                <h3>Dijkstra's Shortest Path</h3>
+                <p>Find shortest paths in weighted graphs (no negative edges):</p>
+                <pre class="language-cpp"><code>priority_queue&lt;pair&lt;int, int&gt;&gt; pq;
+vector&lt;int&gt; dist(n, INF);
+pq.push({0, start});
+dist[start] = 0;
+
+while (!pq.empty()) {
+    auto [d, u] = pq.top(); pq.pop();
+    if (d > dist[u]) continue;
+    for (auto &[v, w] : adj[u]) {
+        if (dist[v] > dist[u] + w) {
+            dist[v] = dist[u] + w;
+            pq.push({-dist[v], v}); // Min-heap trick
+        }
+    }
+}</code></pre>
+
+                <h3>Kruskal's MST Algorithm</h3>
+                <p>Find Minimum Spanning Tree using Union-Find:</p>
+                <pre class="language-cpp"><code>sort(edges.begin(), edges.end()); // Sort by weight
+int cost = 0;
+UnionFind uf(n);
+for (auto &[w, u, v] : edges) {
+    if (uf.find(u) != uf.find(v)) {
+        cost += w;
+        uf.unite(u, v);
+    }
+}</code></pre>
+            </section>
+
+            <!-- Section 6: Dynamic Programming -->
+            <section id="dynamic-programming">
+                <h2 class="main-content-title">Dynamic Programming</h2>
+
+                <h3>0/1 Knapsack</h3>
+                <p>Classic DP problem with O(nW) time complexity:</p>
+                <pre class="language-cpp"><code>vector&lt;int&gt; dp(W+1, 0);
+for (int i = 0; i < n; i++) {
+    for (int j = W; j >= weight[i]; j--) {
+        dp[j] = max(dp[j], val[i] + dp[j - weight[i]]);
+    }
+}</code></pre>
+
+                <h3>Longest Increasing Subsequence</h3>
+                <p>O(n log n) solution using binary search:</p>
+                <pre class="language-cpp"><code>vector&lt;int&gt; lis;
+for (int x : nums) {
+    auto it = lower_bound(lis.begin(), lis.end(), x);
+    if (it == lis.end()) lis.push_back(x);
+    else *it = x;
+}
+int length = lis.size();</code></pre>
+            </section>
+
+            <!-- Section 7: String Algorithms -->
+            <section id="string-algorithms">
+                <h2 class="main-content-title">String Algorithms</h2>
+
+                <h3>KMP Pattern Matching</h3>
+                <p>O(n+m) pattern searching with prefix function:</p>
+                <pre class="language-cpp"><code>vector&lt;int&gt; computeLPS(string pattern) {
+    vector&lt;int&gt; lps(pattern.size());
+    for (int i = 1, len = 0; i < pattern.size(); ) {
+        if (pattern[i] == pattern[len]) lps[i++] = ++len;
+        else if (len) len = lps[len-1];
+        else lps[i++] = 0;
+    }
+    return lps;
+}
+
+void KMP(string text, string pattern) {
+    vector&lt;int&gt; lps = computeLPS(pattern);
+    for (int i = 0, j = 0; i < text.size(); ) {
+        if (text[i] == pattern[j]) i++, j++;
+        if (j == pattern.size()) {
+            cout << "Found at index " << i-j << endl;
+            j = lps[j-1];
+        }
+        else if (i < text.size() && text[i] != pattern[j]) {
+            j ? j = lps[j-1] : i++;
+        }
+    }
+}</code></pre>
+
+                <h3>Z-Algorithm</h3>
+                <p>Find all occurrences of a pattern in O(n+m) time:</p>
+                <pre class="language-cpp"><code>vector&lt;int&gt; computeZ(string s) {
+    int n = s.size();
+    vector&lt;int&gt; Z(n);
+    for (int i = 1, l = 0, r = 0; i < n; i++) {
+        if (i <= r) Z[i] = min(r-i+1, Z[i-l]);
+        while (i+Z[i] < n && s[Z[i]] == s[i+Z[i]]) Z[i]++;
+        if (i+Z[i]-1 > r) l = i, r = i+Z[i]-1;
+    }
+    return Z;
+}</code></pre>
+            </section>
+
+            <!-- Section 8: Geometry -->
+            <section id="geometry">
+                <h2 class="main-content-title">Geometry</h2>
+
+                <h3>Point Structure</h3>
+                <p>Basic 2D point/vector representation:</p>
+                <pre class="language-cpp"><code>struct Point {
+    double x, y;
+    Point(double x=0, double y=0) : x(x), y(y) {}
+    Point operator-(Point p) { return Point(x-p.x, y-p.y); }
+    double cross(Point p) { return x*p.y - y*p.x; }
+    double dot(Point p) { return x*p.x + y*p.y; }
+    double dist() { return sqrt(x*x + y*y); }
+};</code></pre>
+
+                <h3>Convex Hull (Andrew's Algorithm)</h3>
+                <p>O(n log n) convex hull computation:</p>
+                <pre class="language-cpp"><code>vector&lt;Point&gt; convexHull(vector&lt;Point&gt; points) {
+    sort(points.begin(), points.end(), [](Point a, Point b) {
+        return make_pair(a.x, a.y) < make_pair(b.x, b.y);
+    });
+    vector&lt;Point&gt; hull;
+    for (int phase = 0; phase < 2; phase++) {
+        size_t start = hull.size();
+        for (Point p : points) {
+            while (hull.size() >= start+2) {
+                Point a = hull[hull.size()-2];
+                Point b = hull.back();
+                if ((b-a).cross(p-a) <= 0) break;
+                hull.pop_back();
+            }
+            hull.push_back(p);
+        }
+        hull.pop_back();
+        reverse(points.begin(), points.end());
+    }
+    return hull;
+}</code></pre>
+            </section>
+
+            <!-- Section 9: Fenwick Tree -->
+            <section id="fenwick-tree">
+                <h2 class="main-content-title">Fenwick Tree</h2>
+
+                <h3>1D Point Update + Range Query</h3>
+                <p>Efficient prefix sums with O(log n) operations:</p>
+                <pre class="language-cpp"><code>struct FenwickTree {
+    vector&lt;int&gt; bit;
+    int n;
+    
+    FenwickTree(int n) : n(n), bit(n+1) {}
+    
+    void update(int idx, int delta) {
+        for (; idx <= n; idx += idx & -idx)
+            bit[idx] += delta;
+    }
+    
+    int query(int idx) {
+        int res = 0;
+        for (; idx > 0; idx -= idx & -idx)
+            res += bit[idx];
+        return res;
+    }
+    
+    int rangeQuery(int l, int r) {
+        return query(r) - query(l-1);
+    }
+};</code></pre>
+
+                <h3>Range Update + Point Query</h3>
+                <p>Modified version for range updates:</p>
+                <pre class="language-cpp"><code>struct FenwickTreeRange {
+    vector&lt;int&gt; bit;
+    int n;
+    
+    FenwickTreeRange(int n) : n(n), bit(n+1) {}
+    
+    void rangeAdd(int l, int r, int val) {
+        update(l, val);
+        update(r+1, -val);
+    }
+    
+    void update(int idx, int delta) {
+        for (; idx <= n; idx += idx & -idx)
+            bit[idx] += delta;
+    }
+    
+    int pointQuery(int idx) {
+        int res = 0;
+        for (; idx > 0; idx -= idx & -idx)
+            res += bit[idx];
+        return res;
+    }
+};</code></pre>
+            </section>
+
+        </section>
+
     </div>
 
     <script src="script.js"></script>
